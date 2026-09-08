@@ -47,7 +47,63 @@
     }
     @media(min-width:761px){.grid.seven::-webkit-scrollbar{height:9px}.grid.seven::-webkit-scrollbar-thumb{background:#D9CDBD;border-radius:999px}.grid.seven::-webkit-scrollbar-track{background:transparent}}
     @media print{header,.bottom-nav,.no-print{display:none!important}body{background:#fff}main{max-width:none;padding:0}.card{box-shadow:none}.view{display:none!important}#planView{display:block!important}.grid.seven{display:grid!important;grid-template-columns:repeat(2,1fr);overflow:visible}.meal{break-inside:avoid}}
-  </style>
+  
+    /* iPhone + desktop refinements */
+    body{
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overscroll-behavior-y:none;
+    }
+    button,.btn,.recipe-link{touch-action:manipulation}
+    header{
+      padding-top:max(12px,env(safe-area-inset-top));
+    }
+    .recipe-item .actions{margin-top:10px}
+    .recipe-item .actions .btn{min-width:96px}
+    .recipe-link{font-weight:760}
+    #recipeForm{scroll-margin-top:90px}
+    .grid.seven{
+      grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+      overflow:visible;
+    }
+    .grid.seven>.card{scroll-snap-align:none}
+    @media (hover:none){
+      .nav button:hover,.btn:hover,.recipe-item:hover{
+        transform:none;
+        box-shadow:inherit;
+      }
+    }
+    @media(max-width:760px){
+      body{padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+      header{
+        padding-left:max(16px,env(safe-area-inset-left));
+        padding-right:max(16px,env(safe-area-inset-right));
+      }
+      main{
+        padding-left:max(14px,env(safe-area-inset-left));
+        padding-right:max(14px,env(safe-area-inset-right));
+      }
+      .bottom-nav{
+        left:max(10px,env(safe-area-inset-left));
+        right:max(10px,env(safe-area-inset-right));
+      }
+      .recipe-item .actions{display:grid;grid-template-columns:1fr 1fr;width:100%}
+      .recipe-item .actions .btn{width:100%;min-width:0}
+      .recipe-list{gap:12px}
+      .recipe-item{padding:14px}
+      .card{box-shadow:0 7px 22px rgba(79,65,48,.07)}
+      .section-title{line-height:1.1}
+      .muted{font-size:13px}
+      .grid.seven{grid-template-columns:1fr}
+    }
+    @media(min-width:761px) and (max-width:1100px){
+      .grid.seven{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(min-width:1101px){
+      .grid.seven{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+
+</style>
 </head>
 <body>
 <header>
@@ -77,7 +133,7 @@
   </section>
 
   <section id="recipesView" class="view">
-    <div class="row between"><div><div class="section-kicker">◇ Sammlung</div><h2 class="section-title">Rezepte</h2><div class="muted">Rezepte hinzufügen, filtern und für deine Wochenplanung verwenden.</div></div><div class="actions"><button id="seedBtn" class="btn">Beispielrezepte laden</button><button id="exportRecipesBtn" class="btn">JSON exportieren</button></div></div>
+    <div class="row between"><div><div class="section-kicker">◇ Sammlung</div><h2 class="section-title">Rezepte</h2><div class="muted">Rezepte hinzufügen, bearbeiten, filtern und für deine Wochenplanung verwenden.</div></div><div class="actions"><button id="exportRecipesBtn" class="btn">JSON exportieren</button></div></div>
     <div class="grid two" style="margin-top:12px">
       <div class="card">
         <h3 class="sub">Neues Rezept hinzufügen</h3>
@@ -96,7 +152,12 @@
           </div>
           <label style="margin-top:12px">Zutaten<textarea name="ingredients" placeholder="100;g;Reis\n180;g;Hähnchen"></textarea><span class="field-hint">Eine Zutat pro Zeile im Format: Menge;Einheit;Zutat</span></label>
           <label style="margin-top:12px">Zubereitungsbeschreibung<textarea name="instructions" placeholder="Beschreibe die Zubereitung Schritt für Schritt."></textarea></label>
-          <button class="btn primary" style="margin-top:10px">Rezept hinzufügen</button>
+          
+<div class="actions" style="margin-top:10px">
+  <button id="recipeSubmitBtn" class="btn primary" type="submit">Rezept hinzufügen</button>
+  <button id="recipeCancelEditBtn" class="btn" type="button" hidden>Bearbeiten abbrechen</button>
+</div>
+
         </form>
         <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
         <div><label>Rezepte importieren<input id="fileImport" type="file" accept=".json,.csv"><span class="field-hint">Unterstützt JSON- und CSV-Dateien.</span></label></div>
@@ -129,6 +190,7 @@ const DEFAULT_PROFILES=[
 ];
 let state={profiles:load('profiles',DEFAULT_PROFILES),recipes:load('recipes',[]),plan:load('plan',null),activePerson:0};
 let recipeFilter='Alle';
+let editRecipeId=null;
 function load(k,f){try{return JSON.parse(localStorage.getItem('meal_'+k))||structuredClone(f)}catch{return structuredClone(f)}}
 function save(){localStorage.setItem('meal_profiles',JSON.stringify(state.profiles));localStorage.setItem('meal_recipes',JSON.stringify(state.recipes));localStorage.setItem('meal_plan',JSON.stringify(state.plan));}
 function esc(s=''){return String(s).replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
@@ -149,22 +211,67 @@ function profileHTML(p,i){return `<div class="card"><h3>${i===0?'Ich':'Partner'}
 function renderProfiles(){profileCards.innerHTML=state.profiles.map(profileHTML).join('');state.profiles.forEach((p,i)=>updateDistSum(i));}
 function updateDistSum(i){const p=state.profiles[i];const sum=Object.values(p.dist).reduce((a,b)=>a+Number(b),0);const el=document.getElementById('distSum'+i); if(el){el.textContent=sum===100?'Summe: 100 % — passt.':'Summe: '+sum+' % — bitte auf 100 % anpassen.';el.className=sum===100?'muted status-good':'muted status-warn';}}
 
-function recipeCard(r){return `<div class="recipe-item"><div class="row between"><strong class="recipe-link" onclick="openRecipeDetails(${r.id},1)">${esc(r.name)}</strong><span class="pill">${esc(r.category)}</span></div><div class="muted">${r.kcal} kcal · ${r.protein} g Protein · ${r.prepTime||0} Min. · ${r.temperature||''}</div><div class="actions" style="margin-top:6px"><button class="btn small danger" onclick="deleteRecipe(${r.id})">Löschen</button></div></div>`}
+function recipeCard(r){return `<div class="recipe-item"><div class="row between"><strong class="recipe-link" onclick="openRecipeDetails(${r.id},1)">${esc(r.name)}</strong><span class="pill">${esc(r.category)}</span></div><div class="muted">${r.kcal} kcal · ${r.protein} g Protein · ${r.prepTime||0} Min. · ${r.temperature||''}</div><div class="actions" style="margin-top:8px"><button class="btn small" onclick="startEditRecipe(${r.id})">Bearbeiten</button><button class="btn small danger" onclick="deleteRecipe(${r.id})">Löschen</button></div></div>`}
 function renderRecipes(){
   const filtered=recipeFilter==='Alle'?state.recipes:state.recipes.filter(r=>r.category===recipeFilter);
   recipeList.innerHTML=filtered.length?filtered.map(recipeCard).join(''):`<div class="muted">${state.recipes.length?'Keine Rezepte in dieser Kategorie.':'Noch keine Rezepte vorhanden. Lade Beispielrezepte oder füge eigene hinzu.'}</div>`;
   document.querySelectorAll('.recipe-filter').forEach(btn=>btn.classList.toggle('active',btn.dataset.filter===recipeFilter));
 }
 function setRecipeFilter(filter){recipeFilter=filter;renderRecipes();}
-function deleteRecipe(id){const i=state.recipes.findIndex(r=>r.id===id);if(i<0)return;state.recipes.splice(i,1);save();renderRecipes();}
-function parseIngredients(text){return text.split(/\n+/).map(x=>x.trim()).filter(Boolean).map(line=>{const [amount,unit,...name]=line.split(';');return {amount:Number(String(amount).replace(',','.'))||0,unit:(unit||'').trim(),name:name.join(';').trim()}}).filter(x=>x.name)}
+function deleteRecipe(id){
+  const i=state.recipes.findIndex(r=>String(r.id)===String(id));
+  if(i<0)return;
+  if(!confirm('Dieses Rezept wirklich löschen?'))return;
+  state.recipes.splice(i,1);
+  if(String(editRecipeId)===String(id))cancelEditRecipe();
+  save();
+  renderRecipes();
+  showToast('Rezept wurde gelöscht.');
+}
+function parseIngredients(text){
+  return text.split(/\n+/).map(x=>x.trim()).filter(Boolean).map(line=>{
+    const [rawAmount,unit,...name]=line.split(';');
+    const amountText=(rawAmount||'').trim();
+    const num=Number(amountText.replace(',','.'));
+    return {
+      amount: amountText==='' ? '' : (Number.isFinite(num) ? num : amountText),
+      unit:(unit||'').trim(),
+      name:name.join(';').trim()
+    }
+  }).filter(x=>x.name)
+}
+function ingredientsToText(ingredients=[]){
+  return (ingredients||[]).map(ing=>{
+    const amount=ing.amount===0||ing.amount===null||ing.amount===undefined?'':String(ing.amount);
+    return `${amount};${ing.unit||''};${ing.name||''}`;
+  }).join('\n');
+}
+function startEditRecipe(id){
+  const r=getRecipe(id);
+  if(!r)return;
+  editRecipeId=r.id;
+  const f=recipeForm.elements;
+  f.name.value=r.name||'';
+  f.category.value=r.category||'Frühstück';
+  f.temperature.value=r.temperature||'kalt';
+  f.prepTime.value=r.prepTime||0;
+  f.kcal.value=r.kcal||0;
+  f.protein.value=r.protein||0;
+  f.carbs.value=r.carbs||0;
+  f.fat.value=r.fat||0;
+  f.ingredients.value=ingredientsToText(r.ingredients||[]);
+  f.instructions.value=r.instructions||'';
+  recipeSubmitBtn.textContent='Änderungen speichern';
+  recipeCancelEditBtn.hidden=false;
+  document.getElementById('recipeForm').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function cancelEditRecipe(){
+  editRecipeId=null;
+  recipeForm.reset();
+  recipeSubmitBtn.textContent='Rezept hinzufügen';
+  recipeCancelEditBtn.hidden=true;
+}
 
-const seedRecipes=[
-['Overnight Oats','Frühstück','kalt',10,460,28,58,12,'80;g;Haferflocken\n200;g;Skyr\n100;g;Beeren'],['Skyr Bowl','Frühstück','kalt',5,390,35,40,8,'300;g;Skyr\n1;Stück;Banane\n20;g;Nüsse'],['Ei-Brot','Frühstück','warm',10,520,30,44,22,'2;Stück;Eier\n100;g;Vollkornbrot\n50;g;Avocado'],
-['Couscous-Salat','Mittagessen','kalt',20,560,32,72,14,'100;g;Couscous\n120;g;Feta\n150;g;Tomaten'],['Wrap-Salat','Mittagessen','kalt',15,610,42,60,20,'2;Stück;Wraps\n150;g;Hähnchen\n100;g;Salat'],['Nudelsalat','Mittagessen','kalt',25,650,35,85,18,'120;g;Nudeln\n120;g;Mozzarella\n150;g;Tomaten'],['Brotzeit','Mittagessen','kalt',10,500,28,50,20,'120;g;Vollkornbrot\n80;g;Käse\n150;g;Gurke'],
-['Hähnchen-Curry','Abendessen','warm',30,700,50,75,20,'100;g;Reis\n180;g;Hähnchen\n150;ml;Kokosmilch'],['Chili con Carne','Abendessen','warm',35,740,52,70,24,'180;g;Hackfleisch\n150;g;Kidneybohnen\n100;g;Reis'],['Pasta Bolognese','Abendessen','warm',30,780,45,95,24,'120;g;Nudeln\n180;g;Hackfleisch\n200;g;Tomatensauce'],['Linsen-Curry','Abendessen','warm',30,680,34,88,18,'120;g;Linsen\n90;g;Reis\n150;ml;Kokosmilch'],
-['Skyr Snack','Snack','kalt',3,220,25,20,4,'200;g;Skyr\n100;g;Beeren'],['Banane & Nüsse','Snack','kalt',2,260,6,30,13,'1;Stück;Banane\n25;g;Nüsse'],['Protein-Joghurt','Snack','kalt',3,180,22,15,3,'200;g;Joghurt\n20;g;Proteinpulver']
-].map((x,id)=>({id:Date.now()+id,name:x[0],category:x[1],temperature:x[2],prepTime:x[3],kcal:x[4],protein:x[5],carbs:x[6],fat:x[7],ingredients:parseIngredients(x[8]),instructions:''}));
 
 function portionOptions(){return [0.5,1,1.5,2,2.5,3]}
 function mealTarget(p,meal){return p.kcal*(p.dist[meal]/100)}
@@ -176,7 +283,16 @@ function openRecipeDetails(recipeId,portion=1){
   const r=getRecipe(recipeId); if(!r)return;
   recipeDialogTitle.textContent=r.name;
   recipeDialogMeta.textContent=(portion!==1?portion+' Portion(en) · ':'')+round(r.kcal*portion)+' kcal · '+round(r.protein*portion,1)+' g Protein';
-  const ingredients=(r.ingredients||[]).map(ing=>`<li><b>${round(ing.amount*portion,1)} ${esc(ing.unit)}</b> ${esc(ing.name)}</li>`).join('');
+  const ingredients=(r.ingredients||[]).map(ing=>{
+    const raw=ing.amount;
+    let amountText='';
+    if(raw!==''&&raw!==null&&raw!==undefined){
+      const n=Number(raw);
+      amountText=Number.isFinite(n)?String(round(n*portion,1)):String(raw);
+    }
+    const prefix=[amountText,ing.unit||''].filter(Boolean).join(' ');
+    return `<li>${prefix?`<b>${esc(prefix)}</b> `:''}${esc(ing.name)}</li>`;
+  }).join('');
   recipeDialogIngredients.innerHTML=ingredients?`<ul class="recipe-detail-list">${ingredients}</ul>`:'<div class="muted">Keine Zutaten hinterlegt.</div>';
   recipeDialogInstructions.textContent=r.instructions||'Keine Zubereitungsbeschreibung vorhanden.';
   recipeDialog.showModal();
@@ -184,7 +300,7 @@ function openRecipeDetails(recipeId,portion=1){
 function nutrients(choice){const r=getRecipe(choice.recipeId);return {kcal:r.kcal*choice.portion,protein:r.protein*choice.portion,carbs:r.carbs*choice.portion,fat:r.fat*choice.portion}}
 function dayTotals(personDay){return personDay.reduce((a,c)=>{const n=nutrients(c);for(const k in n)a[k]+=n[k];return a},{kcal:0,protein:0,carbs:0,fat:0})}
 function generatePlan(){
-  if(state.recipes.length<8){planNotice.innerHTML='<div class="notice">Zu wenige Rezepte. Bitte zuerst Beispielrezepte laden oder eigene Rezepte hinzufügen.</div>';return}
+  if(state.recipes.length<8){planNotice.innerHTML='<div class="notice">Zu wenige Rezepte. Bitte zuerst weitere eigene Rezepte hinzufügen oder importieren.</div>';return}
   const usage={}; const plan=[[],[]]; const prev=[{},{}];
   for(let d=0;d<7;d++){
     plan[0][d]=[];plan[1][d]=[];
@@ -217,7 +333,25 @@ function renderPlan(){
 function openSwap(pIdx,d,mi){const current=state.plan[pIdx][d][mi],meal=current.meal,p=state.profiles[pIdx];const opts=[];for(const r of candidates(meal)){for(const portion of portionOptions()){const s=scoreChoice(r,portion,p,meal,{},null);opts.push({r,portion,s})}}opts.sort((a,b)=>a.s-b.s);swapOptions.innerHTML=opts.slice(0,8).map(o=>`<div class="recipe-item"><div class="row between"><div><strong>${esc(o.r.name)}</strong><div class="muted">${o.portion} Portion(en) · ${round(o.r.kcal*o.portion)} kcal · ${round(o.r.protein*o.portion,1)} g Protein</div></div><button class="btn" onclick="applySwap(${pIdx},${d},${mi},${o.r.id},${o.portion})">Wählen</button></div></div>`).join('');swapDialog.showModal()}
 function applySwap(pIdx,d,mi,rid,portion){const meal=state.plan[pIdx][d][mi].meal;state.plan[pIdx][d][mi]={meal,recipeId:rid,portion};if(meal==='Abendessen'){const other=1-pIdx;const otherP=state.profiles[other],r=getRecipe(rid);let best={portion:1,score:Infinity};for(const po of portionOptions()){const s=scoreChoice(r,po,otherP,meal,{},null);if(s<best.score)best={portion:po,score:s}}const omi=state.plan[other][d].findIndex(x=>x.meal==='Abendessen');state.plan[other][d][omi]={meal,recipeId:rid,portion:best.portion}}
 save();swapDialog.close();renderPlan();renderShopping()}
-function renderShopping(){if(!state.plan){shoppingList.innerHTML='<div class="muted">Noch kein Plan erstellt.</div>';return}const map=new Map();for(let p=0;p<2;p++)for(let d=0;d<7;d++)for(const c of state.plan[p][d]||[]){const r=getRecipe(c.recipeId);for(const ing of r.ingredients||[]){const key=ing.name.toLowerCase()+'|'+ing.unit;const cur=map.get(key)||{name:ing.name,unit:ing.unit,amount:0};cur.amount+=ing.amount*c.portion;map.set(key,cur)}}shoppingList.innerHTML=[...map.values()].sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`<label style="display:flex;grid-template-columns:auto 1fr;align-items:center"><input type="checkbox" style="width:auto"><span><b>${esc(x.name)}</b> — ${round(x.amount,1)} ${esc(x.unit)}</span></label>`).join('')||'<div class="muted">Keine Zutaten vorhanden.</div>'}
+function renderShopping(){
+  if(!state.plan){shoppingList.innerHTML='<div class="muted">Noch kein Plan erstellt.</div>';return}
+  const map=new Map();
+  for(let p=0;p<2;p++)for(let d=0;d<7;d++)for(const c of state.plan[p][d]||[]){
+    const r=getRecipe(c.recipeId);
+    if(!r)continue;
+    for(const ing of r.ingredients||[]){
+      const key=ing.name.toLowerCase()+'|'+(ing.unit||'');
+      const cur=map.get(key)||{name:ing.name,unit:ing.unit||'',amount:0,hasAmount:false};
+      const n=Number(ing.amount);
+      if(ing.amount!==''&&Number.isFinite(n)){cur.amount+=n*c.portion;cur.hasAmount=true}
+      map.set(key,cur);
+    }
+  }
+  shoppingList.innerHTML=[...map.values()].sort((a,b)=>a.name.localeCompare(b.name)).map(x=>{
+    const qty=x.hasAmount?` — ${round(x.amount,1)} ${esc(x.unit)}`:'';
+    return `<label style="display:flex;grid-template-columns:auto 1fr;align-items:center"><input type="checkbox" style="width:auto"><span><b>${esc(x.name)}</b>${qty}</span></label>`;
+  }).join('')||'<div class="muted">Keine Zutaten vorhanden.</div>'
+}
 
 function csvParse(text){const lines=text.trim().split(/\r?\n/);const h=lines.shift().split(',').map(x=>x.trim());return lines.map(line=>{const v=line.split(',');const o={};h.forEach((k,i)=>o[k]=v[i]);return {id:Date.now()+Math.random(),name:o.name||o.Rezeptname,category:o.category||o.Kategorie,temperature:o.temperature||o.Temperatur||'',prepTime:Number(o.prepTime||o.Zubereitungszeit||0),kcal:Number(o.kcal||o.Kalorien||0),protein:Number(o.protein||o.Protein||0),carbs:Number(o.carbs||o.Kohlenhydrate||0),fat:Number(o.fat||o.Fett||0),ingredients:[],instructions:o.instructions||o.Zubereitung||''}})}
 function download(name,text,type='application/json'){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();URL.revokeObjectURL(a.href)}
@@ -228,10 +362,39 @@ for(const b of document.querySelectorAll('.nav button'))b.onclick=()=>{document.
 document.addEventListener('input',e=>{const t=e.target;if(t.dataset.p!==undefined){const i=Number(t.dataset.p);if(t.dataset.dist){state.profiles[i].dist[t.dataset.dist]=Number(t.value);updateDistSum(i)}else{const k=t.dataset.k;state.profiles[i][k]=['name','gender','goal'].includes(k)?t.value:Number(t.value)}save()}})
 document.addEventListener('click',e=>{if(e.target.classList.contains('recalc')){calcTargets(state.profiles[Number(e.target.dataset.i)]);save();renderProfiles()}})
 document.querySelectorAll('.personTab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.personTab').forEach(x=>x.classList.remove('primary'));b.classList.add('primary');state.activePerson=Number(b.dataset.person);renderPlan()})
-recipeForm.onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);state.recipes.push({id:Date.now(),name:f.get('name'),category:f.get('category'),temperature:f.get('temperature'),prepTime:Number(f.get('prepTime')),kcal:Number(f.get('kcal')),protein:Number(f.get('protein')),carbs:Number(f.get('carbs')),fat:Number(f.get('fat')),ingredients:parseIngredients(f.get('ingredients')),instructions:f.get('instructions')});save();e.target.reset();renderRecipes();showToast('Rezept wurde gespeichert.')}
-seedBtn.onclick=()=>{state.recipes=structuredClone(seedRecipes);save();renderRecipes();showToast('Beispielrezepte wurden geladen.');};generateBtn.onclick=generatePlan;printBtn.onclick=()=>window.print();exportRecipesBtn.onclick=()=>download('rezepte.json',JSON.stringify(state.recipes,null,2));
+recipeForm.onsubmit=e=>{
+  e.preventDefault();
+  const f=new FormData(e.target);
+  const recipeData={
+    name:f.get('name'),
+    category:f.get('category'),
+    temperature:f.get('temperature'),
+    prepTime:Number(f.get('prepTime')),
+    kcal:Number(f.get('kcal')),
+    protein:Number(f.get('protein')),
+    carbs:Number(f.get('carbs')),
+    fat:Number(f.get('fat')),
+    ingredients:parseIngredients(f.get('ingredients')),
+    instructions:f.get('instructions')
+  };
+  if(editRecipeId!==null){
+    const i=state.recipes.findIndex(r=>String(r.id)===String(editRecipeId));
+    if(i>=0)state.recipes[i]={...state.recipes[i],...recipeData};
+    showToast('Änderungen wurden gespeichert.');
+  }else{
+    state.recipes.push({id:Date.now(),...recipeData});
+    showToast('Rezept wurde gespeichert.');
+  }
+  save();
+  cancelEditRecipe();
+  renderRecipes();
+  renderPlan();
+  renderShopping();
+}
+generateBtn.onclick=generatePlan;printBtn.onclick=()=>window.print();exportRecipesBtn.onclick=()=>download('rezepte.json',JSON.stringify(state.recipes,null,2));
 fileImport.onchange=async e=>{const file=e.target.files[0];if(!file)return;const text=await file.text();try{const imported=file.name.endsWith('.json')?JSON.parse(text):csvParse(text);state.recipes.push(...imported.map(r=>({...r,id:Date.now()+Math.random()})));save();renderRecipes();showToast(imported.length+' Rezepte wurden importiert.')}catch(err){showToast('Import fehlgeschlagen: '+err.message,true)}e.target.value=''}
 recipeFilters.addEventListener('click',e=>{const btn=e.target.closest('.recipe-filter');if(btn)setRecipeFilter(btn.dataset.filter)});
+recipeCancelEditBtn.onclick=cancelEditRecipe;
 
 renderProfiles();renderRecipes();renderPlan();renderShopping();
 </script>
