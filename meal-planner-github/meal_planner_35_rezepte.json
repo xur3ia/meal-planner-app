@@ -1,0 +1,1432 @@
+[
+  {
+    "id": 1001,
+    "name": "Protein Overnight Oats",
+    "category": "Frühstück",
+    "temperature": "kalt",
+    "prepTime": 10,
+    "kcal": 480,
+    "protein": 35,
+    "carbs": 55,
+    "fat": 12,
+    "ingredients": [
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Haferflocken"
+      },
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Skyr"
+      },
+      {
+        "amount": 100,
+        "unit": "ml",
+        "name": "Milch"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Beeren"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Chiasamen"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Honig"
+      }
+    ],
+    "instructions": "Haferflocken, Skyr, Milch und Chiasamen in einem Glas verrühren. Über Nacht kalt stellen. Vor dem Essen Beeren und Honig daraufgeben."
+  },
+  {
+    "id": 1002,
+    "name": "Skyr-Bananen-Bowl",
+    "category": "Frühstück",
+    "temperature": "kalt",
+    "prepTime": 5,
+    "kcal": 420,
+    "protein": 32,
+    "carbs": 57,
+    "fat": 8,
+    "ingredients": [
+      {
+        "amount": 300,
+        "unit": "g",
+        "name": "Skyr"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Banane"
+      },
+      {
+        "amount": 30,
+        "unit": "g",
+        "name": "Haferflocken"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Mandeln"
+      },
+      {
+        "amount": 5,
+        "unit": "g",
+        "name": "Honig"
+      }
+    ],
+    "instructions": "Skyr in eine Schüssel geben. Banane in Scheiben schneiden und mit Haferflocken, Mandeln und Honig auf dem Skyr verteilen."
+  },
+  {
+    "id": 1003,
+    "name": "Vollkornbrot mit Ei und Hüttenkäse",
+    "category": "Frühstück",
+    "temperature": "kalt",
+    "prepTime": 10,
+    "kcal": 510,
+    "protein": 34,
+    "carbs": 48,
+    "fat": 19,
+    "ingredients": [
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Vollkornbrot"
+      },
+      {
+        "amount": 2,
+        "unit": "Stück",
+        "name": "Ei"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Hüttenkäse"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Tomate"
+      },
+      {
+        "amount": 30,
+        "unit": "g",
+        "name": "Rucola"
+      }
+    ],
+    "instructions": "Eier hart kochen und in Scheiben schneiden. Vollkornbrot mit Hüttenkäse bestreichen und mit Ei, Tomate und Rucola belegen."
+  },
+  {
+    "id": 1004,
+    "name": "Joghurt-Apfel-Müsli",
+    "category": "Frühstück",
+    "temperature": "kalt",
+    "prepTime": 5,
+    "kcal": 450,
+    "protein": 27,
+    "carbs": 63,
+    "fat": 10,
+    "ingredients": [
+      {
+        "amount": 250,
+        "unit": "g",
+        "name": "Griechischer Joghurt 2%"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Apfel"
+      },
+      {
+        "amount": 45,
+        "unit": "g",
+        "name": "Müsli"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Walnüsse"
+      },
+      {
+        "amount": 2,
+        "unit": "g",
+        "name": "Zimt"
+      }
+    ],
+    "instructions": "Apfel würfeln. Joghurt mit Müsli, Apfel, Walnüssen und Zimt in einer Schüssel anrichten."
+  },
+  {
+    "id": 1005,
+    "name": "Quark-Beeren-Crunch",
+    "category": "Frühstück",
+    "temperature": "kalt",
+    "prepTime": 5,
+    "kcal": 390,
+    "protein": 38,
+    "carbs": 39,
+    "fat": 9,
+    "ingredients": [
+      {
+        "amount": 250,
+        "unit": "g",
+        "name": "Magerquark"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Beeren"
+      },
+      {
+        "amount": 30,
+        "unit": "g",
+        "name": "Knuspermüsli"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Erdnussmus"
+      },
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": "Milch"
+      }
+    ],
+    "instructions": "Magerquark mit Milch cremig rühren. Beeren und Knuspermüsli daraufgeben und mit Erdnussmus toppen."
+  },
+  {
+    "id": 1006,
+    "name": "Bircher Müsli mit Skyr",
+    "category": "Frühstück",
+    "temperature": "kalt",
+    "prepTime": 10,
+    "kcal": 500,
+    "protein": 31,
+    "carbs": 65,
+    "fat": 13,
+    "ingredients": [
+      {
+        "amount": 55,
+        "unit": "g",
+        "name": "Haferflocken"
+      },
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Skyr"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Apfel"
+      },
+      {
+        "amount": 100,
+        "unit": "ml",
+        "name": "Milch"
+      },
+      {
+        "amount": 15,
+        "unit": "g",
+        "name": "Rosinen"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Haselnüsse"
+      }
+    ],
+    "instructions": "Apfel grob raspeln. Mit Haferflocken, Skyr, Milch und Rosinen vermengen. Kurz ziehen lassen und mit Haselnüssen bestreuen."
+  },
+  {
+    "id": 1007,
+    "name": "Protein-Porridge mit Banane",
+    "category": "Frühstück",
+    "temperature": "warm",
+    "prepTime": 10,
+    "kcal": 520,
+    "protein": 37,
+    "carbs": 67,
+    "fat": 11,
+    "ingredients": [
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Haferflocken"
+      },
+      {
+        "amount": 250,
+        "unit": "ml",
+        "name": "Milch"
+      },
+      {
+        "amount": 25,
+        "unit": "g",
+        "name": "Proteinpulver Vanille"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Banane"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Erdnussmus"
+      }
+    ],
+    "instructions": "Haferflocken mit Milch aufkochen und 3 bis 5 Minuten köcheln. Vom Herd nehmen, Proteinpulver einrühren und mit Banane sowie Erdnussmus servieren."
+  },
+  {
+    "id": 1008,
+    "name": "Frühstückswrap mit Ei und Pute",
+    "category": "Frühstück",
+    "temperature": "warm",
+    "prepTime": 15,
+    "kcal": 490,
+    "protein": 39,
+    "carbs": 42,
+    "fat": 18,
+    "ingredients": [
+      {
+        "amount": 1,
+        "unit": "Stück",
+        "name": "Vollkornwrap"
+      },
+      {
+        "amount": 2,
+        "unit": "Stück",
+        "name": "Ei"
+      },
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Putenbrustaufschnitt"
+      },
+      {
+        "amount": 40,
+        "unit": "g",
+        "name": "Frischkäse light"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Tomate"
+      },
+      {
+        "amount": 30,
+        "unit": "g",
+        "name": "Spinat"
+      }
+    ],
+    "instructions": "Eier in einer Pfanne stocken lassen. Wrap mit Frischkäse bestreichen, mit Ei, Putenbrust, Tomate und Spinat füllen und zusammenrollen."
+  },
+  {
+    "id": 1009,
+    "name": "Beeren-Smoothie-Bowl",
+    "category": "Frühstück",
+    "temperature": "kalt",
+    "prepTime": 8,
+    "kcal": 430,
+    "protein": 30,
+    "carbs": 58,
+    "fat": 9,
+    "ingredients": [
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Skyr"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Beeren"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Banane"
+      },
+      {
+        "amount": 25,
+        "unit": "g",
+        "name": "Haferflocken"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Kürbiskerne"
+      }
+    ],
+    "instructions": "Skyr, Beeren und Banane cremig mixen. In eine Schüssel geben und mit Haferflocken und Kürbiskernen bestreuen."
+  },
+  {
+    "id": 1101,
+    "name": "Couscous-Hähnchen-Salat",
+    "category": "Mittagessen",
+    "temperature": "kalt",
+    "prepTime": 20,
+    "kcal": 610,
+    "protein": 46,
+    "carbs": 66,
+    "fat": 17,
+    "ingredients": [
+      {
+        "amount": 70,
+        "unit": "g",
+        "name": "Couscous"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Hähnchenbrust"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Gurke"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Tomate"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": "Olivenöl"
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": "Zitronensaft"
+      }
+    ],
+    "instructions": "Couscous mit heißem Wasser quellen lassen und abkühlen. Hähnchen garen und ebenfalls abkühlen lassen. Gemüse schneiden und alles mit Olivenöl und Zitronensaft vermengen."
+  },
+  {
+    "id": 1102,
+    "name": "Thunfisch-Bohnen-Salat",
+    "category": "Mittagessen",
+    "temperature": "kalt",
+    "prepTime": 10,
+    "kcal": 540,
+    "protein": 45,
+    "carbs": 52,
+    "fat": 15,
+    "ingredients": [
+      {
+        "amount": 130,
+        "unit": "g",
+        "name": "Thunfisch im eigenen Saft"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Weiße Bohnen"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Tomate"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Gurke"
+      },
+      {
+        "amount": 40,
+        "unit": "g",
+        "name": "Rote Zwiebel"
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": "Olivenöl"
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": "Balsamico"
+      }
+    ],
+    "instructions": "Bohnen abspülen und abtropfen lassen. Gemüse schneiden. Alles mit Thunfisch, Olivenöl und Balsamico vermengen und abschmecken."
+  },
+  {
+    "id": 1103,
+    "name": "Puten-Wrap mit Frischkäse",
+    "category": "Mittagessen",
+    "temperature": "kalt",
+    "prepTime": 10,
+    "kcal": 590,
+    "protein": 42,
+    "carbs": 61,
+    "fat": 19,
+    "ingredients": [
+      {
+        "amount": 1,
+        "unit": "Stück",
+        "name": "Vollkornwrap"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Putenbrustaufschnitt"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Frischkäse light"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Gurke"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Tomate"
+      },
+      {
+        "amount": 40,
+        "unit": "g",
+        "name": "Salat"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Mais"
+      }
+    ],
+    "instructions": "Wrap mit Frischkäse bestreichen. Gemüse klein schneiden und zusammen mit Putenbrust und Mais auf dem Wrap verteilen. Eng einrollen und halbieren."
+  },
+  {
+    "id": 1104,
+    "name": "Linsen-Feta-Salat",
+    "category": "Mittagessen",
+    "temperature": "kalt",
+    "prepTime": 15,
+    "kcal": 620,
+    "protein": 32,
+    "carbs": 65,
+    "fat": 24,
+    "ingredients": [
+      {
+        "amount": 180,
+        "unit": "g",
+        "name": "Linsen gekocht"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Feta light"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Gurke"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Tomate"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": "Olivenöl"
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": "Zitronensaft"
+      }
+    ],
+    "instructions": "Linsen abtropfen lassen. Gemüse würfeln und Feta zerbröseln. Alles mit Olivenöl und Zitronensaft vermengen."
+  },
+  {
+    "id": 1105,
+    "name": "Kartoffel-Ei-Salat leicht",
+    "category": "Mittagessen",
+    "temperature": "kalt",
+    "prepTime": 25,
+    "kcal": 560,
+    "protein": 30,
+    "carbs": 58,
+    "fat": 21,
+    "ingredients": [
+      {
+        "amount": 300,
+        "unit": "g",
+        "name": "Kartoffeln"
+      },
+      {
+        "amount": 2,
+        "unit": "Stück",
+        "name": "Ei"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Joghurt 1,5%"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Gurke"
+      },
+      {
+        "amount": 30,
+        "unit": "g",
+        "name": "Frühlingszwiebel"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Senf"
+      }
+    ],
+    "instructions": "Kartoffeln und Eier garen und vollständig abkühlen lassen. Kartoffeln schneiden, Eier würfeln und mit Gurke sowie Frühlingszwiebel mischen. Joghurt und Senf als Dressing unterheben."
+  },
+  {
+    "id": 1106,
+    "name": "Reissalat mit Hähnchen und Mango",
+    "category": "Mittagessen",
+    "temperature": "kalt",
+    "prepTime": 25,
+    "kcal": 640,
+    "protein": 44,
+    "carbs": 78,
+    "fat": 15,
+    "ingredients": [
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Reis"
+      },
+      {
+        "amount": 140,
+        "unit": "g",
+        "name": "Hähnchenbrust"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Mango"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Gurke"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": "Limettensaft"
+      },
+      {
+        "amount": 8,
+        "unit": "ml",
+        "name": "Olivenöl"
+      }
+    ],
+    "instructions": "Reis kochen und abkühlen lassen. Hähnchen garen und in Stücke schneiden. Mit Mango, Gurke und Paprika vermengen und mit Limettensaft und Olivenöl abschmecken."
+  },
+  {
+    "id": 1107,
+    "name": "Kichererbsen-Feta-Wrap",
+    "category": "Mittagessen",
+    "temperature": "kalt",
+    "prepTime": 12,
+    "kcal": 600,
+    "protein": 28,
+    "carbs": 72,
+    "fat": 22,
+    "ingredients": [
+      {
+        "amount": 1,
+        "unit": "Stück",
+        "name": "Vollkornwrap"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Kichererbsen"
+      },
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Feta light"
+      },
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Joghurt 1,5%"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Tomate"
+      },
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Gurke"
+      },
+      {
+        "amount": 30,
+        "unit": "g",
+        "name": "Salat"
+      }
+    ],
+    "instructions": "Kichererbsen grob zerdrücken und mit Joghurt vermengen. Wrap mit Salat, Tomate, Gurke, Kichererbsencreme und Feta füllen und einrollen."
+  },
+  {
+    "id": 1108,
+    "name": "Nudelsalat mit Pute und Joghurt-Dressing",
+    "category": "Mittagessen",
+    "temperature": "kalt",
+    "prepTime": 25,
+    "kcal": 650,
+    "protein": 43,
+    "carbs": 77,
+    "fat": 18,
+    "ingredients": [
+      {
+        "amount": 85,
+        "unit": "g",
+        "name": "Vollkornnudeln"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Putenbrust"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Joghurt 1,5%"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Gurke"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Erbsen"
+      },
+      {
+        "amount": 8,
+        "unit": "g",
+        "name": "Senf"
+      }
+    ],
+    "instructions": "Nudeln kochen und abkühlen lassen. Putenbrust garen und würfeln. Mit Gemüse und Erbsen vermengen. Joghurt und Senf verrühren und unter den Salat heben."
+  },
+  {
+    "id": 1109,
+    "name": "Mozzarella-Tomaten-Sandwich",
+    "category": "Mittagessen",
+    "temperature": "kalt",
+    "prepTime": 10,
+    "kcal": 570,
+    "protein": 31,
+    "carbs": 59,
+    "fat": 23,
+    "ingredients": [
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Vollkornbrot"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Mozzarella light"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Tomate"
+      },
+      {
+        "amount": 30,
+        "unit": "g",
+        "name": "Rucola"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Pesto"
+      }
+    ],
+    "instructions": "Vollkornbrot mit Pesto bestreichen. Mozzarella und Tomate in Scheiben schneiden und zusammen mit Rucola auf dem Brot verteilen."
+  },
+  {
+    "id": 1201,
+    "name": "Hähnchen-Curry mit Reis",
+    "category": "Abendessen",
+    "temperature": "warm",
+    "prepTime": 30,
+    "kcal": 720,
+    "protein": 52,
+    "carbs": 78,
+    "fat": 21,
+    "ingredients": [
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Reis"
+      },
+      {
+        "amount": 180,
+        "unit": "g",
+        "name": "Hähnchenbrust"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Zucchini"
+      },
+      {
+        "amount": 120,
+        "unit": "ml",
+        "name": "Kokosmilch light"
+      },
+      {
+        "amount": 20,
+        "unit": "g",
+        "name": "Currypaste"
+      }
+    ],
+    "instructions": "Reis garen. Hähnchen anbraten, Gemüse zugeben und kurz mitbraten. Kokosmilch und Currypaste einrühren und 10 Minuten köcheln lassen. Mit Reis servieren."
+  },
+  {
+    "id": 1202,
+    "name": "Chili con Carne leicht",
+    "category": "Abendessen",
+    "temperature": "warm",
+    "prepTime": 35,
+    "kcal": 690,
+    "protein": 50,
+    "carbs": 73,
+    "fat": 20,
+    "ingredients": [
+      {
+        "amount": 160,
+        "unit": "g",
+        "name": "Rinderhack 5%"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Kidneybohnen"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Mais"
+      },
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Passierte Tomaten"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Reis"
+      }
+    ],
+    "instructions": "Reis kochen. Hackfleisch krümelig anbraten, Paprika zugeben. Bohnen, Mais und passierte Tomaten einrühren und 15 Minuten köcheln lassen. Mit Reis servieren."
+  },
+  {
+    "id": 1203,
+    "name": "Lachs mit Kartoffeln und Brokkoli",
+    "category": "Abendessen",
+    "temperature": "warm",
+    "prepTime": 30,
+    "kcal": 710,
+    "protein": 45,
+    "carbs": 60,
+    "fat": 31,
+    "ingredients": [
+      {
+        "amount": 160,
+        "unit": "g",
+        "name": "Lachsfilet"
+      },
+      {
+        "amount": 300,
+        "unit": "g",
+        "name": "Kartoffeln"
+      },
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Brokkoli"
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": "Olivenöl"
+      },
+      {
+        "amount": 15,
+        "unit": "ml",
+        "name": "Zitronensaft"
+      }
+    ],
+    "instructions": "Kartoffeln garen. Brokkoli dämpfen. Lachs mit etwas Olivenöl in der Pfanne oder im Ofen garen und mit Zitronensaft abschmecken. Zusammen servieren."
+  },
+  {
+    "id": 1204,
+    "name": "Puten-Gemüse-Pfanne mit Couscous",
+    "category": "Abendessen",
+    "temperature": "warm",
+    "prepTime": 25,
+    "kcal": 680,
+    "protein": 51,
+    "carbs": 72,
+    "fat": 18,
+    "ingredients": [
+      {
+        "amount": 170,
+        "unit": "g",
+        "name": "Putenbrust"
+      },
+      {
+        "amount": 75,
+        "unit": "g",
+        "name": "Couscous"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Zucchini"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Karotte"
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": "Olivenöl"
+      }
+    ],
+    "instructions": "Couscous quellen lassen. Putenbrust in Streifen schneiden und anbraten. Gemüse zugeben und bissfest garen. Couscous unterheben und würzen."
+  },
+  {
+    "id": 1205,
+    "name": "Vollkornpasta mit Rinder-Bolognese",
+    "category": "Abendessen",
+    "temperature": "warm",
+    "prepTime": 30,
+    "kcal": 750,
+    "protein": 48,
+    "carbs": 86,
+    "fat": 23,
+    "ingredients": [
+      {
+        "amount": 90,
+        "unit": "g",
+        "name": "Vollkornnudeln"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Rinderhack 5%"
+      },
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Passierte Tomaten"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Karotte"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Zwiebel"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Parmesan"
+      }
+    ],
+    "instructions": "Nudeln kochen. Hackfleisch anbraten, Zwiebel und Karotte zugeben. Passierte Tomaten einrühren und 15 Minuten köcheln. Mit Nudeln und Parmesan servieren."
+  },
+  {
+    "id": 1206,
+    "name": "Ofengemüse mit Hähnchen und Feta",
+    "category": "Abendessen",
+    "temperature": "warm",
+    "prepTime": 40,
+    "kcal": 700,
+    "protein": 52,
+    "carbs": 55,
+    "fat": 27,
+    "ingredients": [
+      {
+        "amount": 180,
+        "unit": "g",
+        "name": "Hähnchenbrust"
+      },
+      {
+        "amount": 250,
+        "unit": "g",
+        "name": "Kartoffeln"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Zucchini"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Feta light"
+      },
+      {
+        "amount": 10,
+        "unit": "ml",
+        "name": "Olivenöl"
+      }
+    ],
+    "instructions": "Backofen auf 200 °C vorheizen. Kartoffeln und Gemüse schneiden, mit Öl vermengen und 20 Minuten backen. Hähnchen und Feta zugeben und weitere 15 bis 20 Minuten garen."
+  },
+  {
+    "id": 1207,
+    "name": "Rotes Linsen-Dal mit Reis",
+    "category": "Abendessen",
+    "temperature": "warm",
+    "prepTime": 30,
+    "kcal": 670,
+    "protein": 30,
+    "carbs": 99,
+    "fat": 16,
+    "ingredients": [
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Rote Linsen"
+      },
+      {
+        "amount": 65,
+        "unit": "g",
+        "name": "Reis"
+      },
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Passierte Tomaten"
+      },
+      {
+        "amount": 100,
+        "unit": "ml",
+        "name": "Kokosmilch light"
+      },
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Zwiebel"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Spinat"
+      }
+    ],
+    "instructions": "Reis garen. Zwiebel anschwitzen, Linsen, Tomaten und Kokosmilch zugeben und etwa 20 Minuten köcheln. Spinat kurz vor Ende unterheben und mit Reis servieren."
+  },
+  {
+    "id": 1208,
+    "name": "Hähnchen-Fajita-Bowl",
+    "category": "Abendessen",
+    "temperature": "warm",
+    "prepTime": 25,
+    "kcal": 730,
+    "protein": 50,
+    "carbs": 82,
+    "fat": 21,
+    "ingredients": [
+      {
+        "amount": 170,
+        "unit": "g",
+        "name": "Hähnchenbrust"
+      },
+      {
+        "amount": 75,
+        "unit": "g",
+        "name": "Reis"
+      },
+      {
+        "amount": 120,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Zwiebel"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Mais"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Joghurt 1,5%"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Salsa"
+      }
+    ],
+    "instructions": "Reis kochen. Hähnchen, Paprika und Zwiebel kräftig anbraten und würzen. Mit Reis, Mais, Salsa und Joghurt in einer Schüssel anrichten."
+  },
+  {
+    "id": 1209,
+    "name": "Kartoffel-Hack-Auflauf",
+    "category": "Abendessen",
+    "temperature": "warm",
+    "prepTime": 45,
+    "kcal": 740,
+    "protein": 47,
+    "carbs": 67,
+    "fat": 29,
+    "ingredients": [
+      {
+        "amount": 320,
+        "unit": "g",
+        "name": "Kartoffeln"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Rinderhack 5%"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Passierte Tomaten"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Zucchini"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Käse light"
+      },
+      {
+        "amount": 50,
+        "unit": "g",
+        "name": "Zwiebel"
+      }
+    ],
+    "instructions": "Kartoffeln vorkochen und in Scheiben schneiden. Hackfleisch mit Zwiebel und Zucchini anbraten, Tomaten zugeben. Alles in eine Auflaufform schichten, mit Käse bestreuen und bei 200 °C etwa 20 Minuten backen."
+  },
+  {
+    "id": 1301,
+    "name": "Skyr mit Beeren",
+    "category": "Snack",
+    "temperature": "kalt",
+    "prepTime": 3,
+    "kcal": 210,
+    "protein": 24,
+    "carbs": 22,
+    "fat": 2,
+    "ingredients": [
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Skyr"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Beeren"
+      },
+      {
+        "amount": 5,
+        "unit": "g",
+        "name": "Honig"
+      }
+    ],
+    "instructions": "Skyr in eine Schüssel geben, Beeren darauf verteilen und mit Honig süßen."
+  },
+  {
+    "id": 1302,
+    "name": "Apfel mit Erdnussmus",
+    "category": "Snack",
+    "temperature": "kalt",
+    "prepTime": 3,
+    "kcal": 230,
+    "protein": 6,
+    "carbs": 29,
+    "fat": 11,
+    "ingredients": [
+      {
+        "amount": 180,
+        "unit": "g",
+        "name": "Apfel"
+      },
+      {
+        "amount": 20,
+        "unit": "g",
+        "name": "Erdnussmus"
+      }
+    ],
+    "instructions": "Apfel in Spalten schneiden und zusammen mit dem Erdnussmus servieren."
+  },
+  {
+    "id": 1303,
+    "name": "Hüttenkäse mit Tomate",
+    "category": "Snack",
+    "temperature": "kalt",
+    "prepTime": 5,
+    "kcal": 190,
+    "protein": 24,
+    "carbs": 10,
+    "fat": 6,
+    "ingredients": [
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Hüttenkäse"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "Tomate"
+      },
+      {
+        "amount": 5,
+        "unit": "ml",
+        "name": "Balsamico"
+      }
+    ],
+    "instructions": "Tomate würfeln und mit Hüttenkäse vermengen. Mit Balsamico und Gewürzen abschmecken."
+  },
+  {
+    "id": 1304,
+    "name": "Proteinshake Banane",
+    "category": "Snack",
+    "temperature": "kalt",
+    "prepTime": 4,
+    "kcal": 260,
+    "protein": 28,
+    "carbs": 32,
+    "fat": 3,
+    "ingredients": [
+      {
+        "amount": 25,
+        "unit": "g",
+        "name": "Proteinpulver Vanille"
+      },
+      {
+        "amount": 250,
+        "unit": "ml",
+        "name": "Milch 1,5%"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Banane"
+      }
+    ],
+    "instructions": "Alle Zutaten in einen Mixer geben und cremig mixen."
+  },
+  {
+    "id": 1305,
+    "name": "Joghurt mit Nüssen",
+    "category": "Snack",
+    "temperature": "kalt",
+    "prepTime": 3,
+    "kcal": 250,
+    "protein": 19,
+    "carbs": 18,
+    "fat": 12,
+    "ingredients": [
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Griechischer Joghurt 2%"
+      },
+      {
+        "amount": 15,
+        "unit": "g",
+        "name": "Mandeln"
+      },
+      {
+        "amount": 10,
+        "unit": "g",
+        "name": "Honig"
+      }
+    ],
+    "instructions": "Joghurt in eine Schüssel geben und mit Mandeln und Honig servieren."
+  },
+  {
+    "id": 1306,
+    "name": "Knäckebrot mit Putenbrust",
+    "category": "Snack",
+    "temperature": "kalt",
+    "prepTime": 5,
+    "kcal": 220,
+    "protein": 21,
+    "carbs": 25,
+    "fat": 4,
+    "ingredients": [
+      {
+        "amount": 3,
+        "unit": "Stück",
+        "name": "Knäckebrot"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Putenbrustaufschnitt"
+      },
+      {
+        "amount": 40,
+        "unit": "g",
+        "name": "Frischkäse light"
+      },
+      {
+        "amount": 80,
+        "unit": "g",
+        "name": "Gurke"
+      }
+    ],
+    "instructions": "Knäckebrot mit Frischkäse bestreichen und mit Putenbrust und Gurkenscheiben belegen."
+  },
+  {
+    "id": 1307,
+    "name": "Quark mit Banane und Zimt",
+    "category": "Snack",
+    "temperature": "kalt",
+    "prepTime": 5,
+    "kcal": 240,
+    "protein": 27,
+    "carbs": 31,
+    "fat": 2,
+    "ingredients": [
+      {
+        "amount": 200,
+        "unit": "g",
+        "name": "Magerquark"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Banane"
+      },
+      {
+        "amount": 50,
+        "unit": "ml",
+        "name": "Milch"
+      },
+      {
+        "amount": 2,
+        "unit": "g",
+        "name": "Zimt"
+      }
+    ],
+    "instructions": "Magerquark mit Milch cremig rühren. Banane in Scheiben schneiden, unterheben und mit Zimt bestreuen."
+  },
+  {
+    "id": 1308,
+    "name": "Gemüsesticks mit Hummus",
+    "category": "Snack",
+    "temperature": "kalt",
+    "prepTime": 8,
+    "kcal": 230,
+    "protein": 8,
+    "carbs": 24,
+    "fat": 11,
+    "ingredients": [
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Karotte"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Gurke"
+      },
+      {
+        "amount": 100,
+        "unit": "g",
+        "name": "Paprika"
+      },
+      {
+        "amount": 60,
+        "unit": "g",
+        "name": "Hummus"
+      }
+    ],
+    "instructions": "Gemüse in Stifte schneiden und zusammen mit dem Hummus servieren."
+  }
+]
